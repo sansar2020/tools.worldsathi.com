@@ -1,0 +1,234 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Complete Documentation System with 6 Comprehensive Topics",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create comprehensive documentation page for Static Pages Content covering About Us, Contact Us, Terms of Service, Privacy Policy, Cookie Policy, and Data Rights pages",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/static-pages-content route",
+        "Covers all 6 static page types with detailed explanations",
+        "Includes actual code snippets from existing pages (AboutUs.tsx, ContactUs.tsx, legal pages)",
+        "Explains the layout structure, form handling, and navigation patterns",
+        "Provides content maintenance guidelines"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/StaticPagesContent.tsx",
+          "operation": "create",
+          "description": "Create documentation page explaining the implementation of static pages including About Us (frontend/src/pages/AboutUs.tsx), Contact Us (frontend/src/pages/ContactUs.tsx), and legal pages (TermsOfService.tsx, PrivacyPolicy.tsx, CookiePolicy.tsx, DataRights.tsx). Include sections on: page structure using shadcn/ui Card components, hero sections with gradient backgrounds using generated images (frontend/public/assets/generated/about-hero.dim_1200x400.png, frontend/public/assets/generated/contact-hero.dim_1200x400.png), form handling patterns in ContactUs with controlled inputs and simulated submission, navigation breadcrumbs, and content organization. Provide code examples showing the layout structure with main container, sections, and footer links. Document content maintenance best practices for legal pages including version dates and GDPR/CCPA compliance sections. Follow the same documentation layout pattern as existing docs with table of contents, syntax-highlighted code blocks, and navigation back to documentation index."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create comprehensive documentation page for Dynamic Pages covering Homepage, Category pages, Tool pages, Dashboard, and Admin pages functionality",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/dynamic-pages route",
+        "Explains Homepage structure with hero, featured tools, categories, and sidebar",
+        "Documents Category page filtering and tool grid implementation",
+        "Covers Tool page architecture using ToolPageTemplate",
+        "Details Dashboard authentication requirements and user data display",
+        "Explains Admin pages structure and authentication guards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/DynamicPages.tsx",
+          "operation": "create",
+          "description": "Create documentation page explaining dynamic page implementations. Cover Homepage (frontend/src/pages/HomePage.tsx) with HeroSection using frontend/public/assets/generated/hero-bg.dim_1920x800.png, FeaturedToolsGrid, CategoryCards, PopularToolsByCategory, NewToolsSection, and Sidebar components. Document Category pages (frontend/src/pages/CategoryPage.tsx) with CategoryHero using category-specific gradient backgrounds (e.g., frontend/public/assets/generated/category-calculators-hero-gradient.dim_1200x400.png), breadcrumbs, ToolGrid with filtering/sorting, and route parameter handling from TanStack Router. Explain Tool pages using ToolPageTemplate (frontend/src/pages/tools/ToolPageTemplate.tsx) with tool-specific gradient heroes (e.g., frontend/public/assets/generated/tool-percentage-calculator-hero-gradient.dim_1200x400.png), AboutTheTool, UsabilityGuide, FAQs, and related tools sidebar. Detail Dashboard (frontend/src/pages/Dashboard.tsx) requiring authentication via useInternetIdentity, displaying user profile from getCallerUserProfile, credit balance using useCredits hook, and favorite tools. Cover Admin pages (frontend/src/pages/admin/) with AdminAuthGuard wrapper using AdminAuthContext, hardcoded admin authentication, and various management interfaces (Dashboard, CreditManagement, ToolManagement, etc.). Include component hierarchy diagrams and data fetching patterns using React Query hooks from frontend/src/hooks/useQueries.ts. Provide code examples showing routing patterns, authentication guards, and state management."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create comprehensive documentation page for Technology Stack with detailed breakdown of all major technologies and their integration",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/technology-stack route",
+        "Covers all 7 major technologies with detailed explanations",
+        "Includes architecture diagram showing frontend-backend integration",
+        "Provides code examples for each technology's usage patterns",
+        "Explains the role and benefits of each technology in the stack",
+        "Documents how technologies work together (e.g., React Query + Motoko actors)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/TechnologyStack.tsx",
+          "operation": "create",
+          "description": "Create comprehensive technology stack documentation. Cover Motoko backend with single-actor architecture in backend/main.mo, stable variables for data persistence, and public shared/query functions. Explain React frontend with functional components, hooks, and TypeScript. Document Tailwind CSS styling with OKLCH color system in frontend/src/index.css and custom theme configuration in frontend/tailwind.config.js. Detail Shadcn UI components from frontend/src/components/ui/ including Card, Button, Input, and their immutability constraint. Cover React Query for data fetching with useActor hook (frontend/src/hooks/useActor.ts) creating backend actor instances, useQueries hooks for profiles/favorites/preferences, and automatic cache invalidation. Explain Three.js capabilities for 3D visualizations (if applicable to tools). Document Internet Identity authentication using useInternetIdentity hook (frontend/src/hooks/useInternetIdentity.ts) with AuthClient, login/logout flows, and principal-based identity management. Include architecture diagram showing frontend-backend integration flow: React components → React Query hooks → useActor → Motoko actor methods → backend stable storage. Embed frontend/public/assets/generated/architecture-diagram.dim_1200x800.png and frontend/public/assets/generated/architecture-data-flow.dim_1200x800.png. Provide code examples demonstrating: actor instantiation, query/mutation patterns with React Query, Tailwind utility classes, shadcn/ui component usage, and Internet Identity integration. Explain technology selection rationale for each choice."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create comprehensive documentation page for Credit System covering complete architecture from backend to frontend with migration strategy",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/credit-system route",
+        "Explains backend credit data model with code from main.mo",
+        "Documents stable variables used for credit persistence",
+        "Covers useCredits hook implementation and React Query integration",
+        "Details credit consumption flow with sequence diagrams",
+        "Explains admin credit management interface",
+        "Includes migration considerations for credit schema changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/CreditSystem.tsx",
+          "operation": "create",
+          "description": "Create comprehensive credit system documentation covering both frontend and backend aspects. Document backend implementation referencing the UserProfile type with totalCreditsAllowed and creditsConsumed fields, UserCreditStatus type for admin views, and backend functions: getCreditBalance, consumeCredits, updateProfileCredits, and listAllCreditBalances. Explain stable variable persistence patterns in the backend for credit data. Cover frontend implementation with useCredits hook (frontend/src/hooks/useCredits.ts) providing useGetCreditBalance, useConsumeCredits, useListAllCreditBalances, and useUpdateProfileCredits mutations with React Query integration and automatic cache invalidation. Detail credit consumption flow: user initiates action → frontend calls useConsumeCredits mutation → backend consumeCredits method validates balance → deducts credits from creditsConsumed → returns success/failure → frontend updates UI and query cache. Explain admin credit management interface in frontend/src/pages/admin/CreditManagement.tsx showing all user balances in sortable table with summary cards and manual credit adjustment using updateProfileCredits. Include sequence diagram showing complete credit flow from signup (initial totalCreditsAllowed) through consumption to balance checking. Document migration considerations when modifying credit schema: stable variable updates, data transformation functions, and backward compatibility. Provide code examples from backend interface (frontend/src/backend.d.ts) showing UserCreditStatus and UserProfile types, and frontend code showing useCredits hook usage patterns."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create comprehensive documentation page for Improvement Areas identifying placeholders, missing features, and enhancement opportunities",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/improvement-areas route",
+        "Lists all placeholder components with file paths",
+        "Identifies incomplete admin features (blog, forum, user stats)",
+        "Documents missing backend integrations",
+        "Categorizes improvements by priority level",
+        "Provides actionable suggestions for each improvement",
+        "Includes code snippets showing current placeholder state"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/ImprovementAreas.tsx",
+          "operation": "create",
+          "description": "Create comprehensive improvement areas documentation categorizing enhancements by priority. Critical priority: Complete admin blog management (frontend/src/pages/admin/BlogManagement.tsx shows 'Coming Soon' placeholder), forum moderation (frontend/src/pages/admin/ForumModeration.tsx), and user statistics (frontend/src/pages/admin/UserStatistics.tsx). High priority: Implement dashboard analytics (frontend/src/components/dashboard/Analytics.tsx empty), API key management (frontend/src/components/dashboard/ApiKeyManagement.tsx empty), saved tools (frontend/src/components/dashboard/SavedTools.tsx empty), and usage history (frontend/src/components/dashboard/UsageHistory.tsx empty). Medium priority: Complete gamification features including badge display (frontend/src/components/gamification/BadgeDisplay.tsx), unlock notifications (frontend/src/components/gamification/BadgeUnlockedNotification.tsx), streak counter (frontend/src/components/gamification/StreakCounter.tsx), and related hooks (frontend/src/hooks/useGamification.ts). Add onboarding tour (frontend/src/components/onboarding/OnboardingTour.tsx) and keyboard shortcuts (frontend/src/components/KeyboardShortcutsHelp.tsx, frontend/src/hooks/useKeyboardShortcuts.ts). Low priority: Implement blog system (frontend/src/pages/BlogIndex.tsx, frontend/src/pages/BlogArticle.tsx, frontend/src/types/blog.ts, frontend/src/components/FeaturedBlogCards.tsx) and forum functionality (frontend/src/pages/forum/ForumIndex.tsx, frontend/src/pages/forum/ForumThread.tsx, frontend/src/pages/forum/CreateThread.tsx). Document missing backend integrations for real data in admin analytics (frontend/src/pages/admin/UsageAnalytics.tsx shows mock data alerts), quota management (frontend/src/pages/admin/QuotaManagement.tsx frontend-only state), and user management (frontend/src/pages/admin/UserManagement.tsx placeholder). List incomplete tool implementations (frontend/src/pages/tools/Analyzer2.tsx, Calculator2.tsx, Productivity2.tsx all empty). For each area, provide: current file path, code snippet showing placeholder state, explanation of what's missing, suggested implementation approach, and estimated complexity. Include actionable next steps for prioritized development."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create comprehensive documentation page for Best Practices covering guidelines for development, modifications, and consistency standards",
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/best-practices route",
+        "Documents tool creation workflow with step-by-step guide",
+        "Explains backend constraints with code examples",
+        "Lists all immutable frontend paths with explanations why",
+        "Provides code style and consistency guidelines",
+        "Includes examples of correct vs incorrect patterns",
+        "Documents naming conventions for files, components, and functions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/BestPractices.tsx",
+          "operation": "create",
+          "description": "Create comprehensive best practices documentation. Document tool creation workflow: 1) Plan tool with metadata (name, slug, category, icon from frontend/src/constants/categories.ts), 2) Create component in frontend/src/pages/tools/[category]/ following naming convention (PascalCase matching tool name), 3) Implement UI using ToolPageTemplate with tool-specific gradient hero from frontend/public/assets/generated/tool-[slug]-hero-gradient.dim_1200x400.png, 4) Add tool metadata to frontend/src/constants/tools.ts array with complete description/FAQs/about/usability, 5) Register lazy route in frontend/src/App.tsx using TanStack Router pattern, 6) Test routing, metadata display, and integration. Include workflow diagram showing these steps embedded from frontend/public/assets/generated/tool-creation-workflow.dim_1200x800.png. Document backend constraints: single-actor architecture in backend/main.mo (never create separate canisters/actors), use stable variables for persistence across upgrades, include authorization guards using Runtime.trap for unauthorized access, prefer query functions for reads and shared functions for writes. List immutable frontend paths with explanations: frontend/src/hooks/useInternetIdentity.ts (Internet Identity integration is core infrastructure), frontend/src/hooks/useActor.ts (actor instantiation pattern must remain consistent), frontend/src/main.tsx (app initialization and provider setup), frontend/src/components/ui/* (shadcn/ui components maintain design system integrity). Provide code style guidelines: use TypeScript for all new files, functional components with hooks over class components, const for immutable values, descriptive variable names (isLoading not loading), organize imports (React, external libraries, internal modules, types), use Tailwind utility classes over custom CSS. Document naming conventions: components use PascalCase (ToolCard.tsx), hooks use camelCase with 'use' prefix (useCredits.ts), utilities use camelCase (formatters.ts), pages match route structure. Include correct vs incorrect pattern examples: proper React Query usage with enabled flags, authorization checking patterns, component composition over prop drilling, error boundary usage. Explain consistency standards for maintaining codebase quality."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Update the Documentation Index page to include navigation links to all 6 new documentation sections alongside existing IC guides",
+      "acceptanceCriteria": [
+        "DocsIndex.tsx updated with 6 new documentation sections",
+        "Sections organized under 'Project Documentation' category",
+        "Each section has an appropriate icon and description",
+        "Maintains existing IC Platform Guides structure",
+        "Navigation links work correctly to new documentation pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/DocsIndex.tsx",
+          "operation": "modify",
+          "description": "Update the documentation index to add 6 new project documentation sections. Add a new 'Project Documentation' category section above the existing 'Internet Computer Development Guides' section. Include new sections: 1) Static Pages Content (/documentation/static-pages-content) with FileText icon explaining About Us, Contact, and legal page implementations, 2) Dynamic Pages (/documentation/dynamic-pages) with Layout icon covering Homepage, Category, Tool, Dashboard, and Admin page architectures, 3) Technology Stack (/documentation/technology-stack) with Layers icon detailing Motoko, React, Tailwind, Shadcn UI, React Query, Three.js, and Internet Identity, 4) Credit System (/documentation/credit-system) with Coins icon documenting complete credit architecture from backend to frontend, 5) Improvement Areas (/documentation/improvement-areas) with AlertTriangle icon identifying placeholders and enhancement opportunities, 6) Best Practices (/documentation/best-practices) with CheckCircle icon providing development guidelines and consistency standards. Maintain existing IC Platform Guides structure with all 11 guides (Platform Setup, Internet Identity Auth, Frontend Backend Integration, Motoko Backend Patterns, Canister Deployment, Project Structure, Tool Architecture, Tool Creation Tutorial, Tool Examples, Tool Integration Checklist, Troubleshooting). Ensure all new section cards use consistent styling matching existing documentation cards with hover effects, icons from Lucide, descriptions, and proper routing links."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add routing configuration in App.tsx for all 6 new documentation pages using TanStack Router lazy loading pattern",
+      "acceptanceCriteria": [
+        "Routes added for static-pages-content, dynamic-pages, technology-stack, credit-system, improvement-areas, and best-practices",
+        "Routes use lazy() for code splitting like existing doc routes",
+        "Routes nested under /documentation path",
+        "Route configuration follows existing patterns in App.tsx"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add 6 new documentation routes to the TanStack Router configuration following the existing lazy loading pattern. Add routes in the documentation section after the existing 11 documentation routes: 1) /documentation/static-pages-content route loading lazy(() => import('./pages/docs/StaticPagesContent')), 2) /documentation/dynamic-pages route loading lazy(() => import('./pages/docs/DynamicPages')), 3) /documentation/technology-stack route loading lazy(() => import('./pages/docs/TechnologyStack')), 4) /documentation/credit-system route loading lazy(() => import('./pages/docs/CreditSystem')), 5) /documentation/improvement-areas route loading lazy(() => import('./pages/docs/ImprovementAreas')), 6) /documentation/best-practices route loading lazy(() => import('./pages/docs/BestPractices')). Maintain alphabetical or logical ordering within documentation routes. Ensure routes are nested under the /documentation parent path and follow the exact same pattern as existing documentation routes (e.g., frontend-backend-integration, internet-identity-auth) with lazy imports for code splitting. Verify route structure matches the TanStack Router createBrowserRouter configuration pattern used throughout the file."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Include architectural diagrams in documentation pages using ASCII art or embedded generated images",
+      "acceptanceCriteria": [
+        "Credit System page includes sequence diagram of credit consumption",
+        "Technology Stack page includes layered architecture diagram",
+        "Dynamic Pages documentation includes component hierarchy",
+        "Best Practices includes workflow diagrams for tool creation",
+        "Diagrams are clear, properly formatted, and embedded in documentation pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/CreditSystem.tsx",
+          "operation": "modify",
+          "description": "Add credit consumption sequence diagram to the credit system documentation. Create a section with a code block containing Mermaid-compatible sequence diagram syntax showing: User → Frontend (initiates action) → useConsumeCredits hook → React Query mutation → Backend actor consumeCredits method → checks credit balance → deducts from creditsConsumed if available → returns success/failure → Frontend updates query cache → UI reflects new balance. Alternatively, create an ASCII art diagram showing the flow: User Action → Frontend Component → useCredits Hook → Actor Method → Stable Storage → Response → Cache Update → UI Update. Include explanatory text describing each step in the credit consumption flow with emphasis on authorization checks, balance validation, and automatic cache invalidation."
+        },
+        {
+          "path": "frontend/src/pages/docs/TechnologyStack.tsx",
+          "operation": "modify",
+          "description": "Embed architecture diagrams showing technology stack layers and frontend-backend integration. Include the generated architecture diagram using the workspace file path frontend/public/assets/generated/architecture-diagram.dim_1200x800.png showing layered architecture: User Interface Layer (React + Tailwind + Shadcn UI) → State Management Layer (React Query + Context) → Integration Layer (useActor + useInternetIdentity) → Backend Layer (Motoko Actor) → Storage Layer (Stable Variables). Also embed frontend/public/assets/generated/architecture-data-flow.dim_1200x800.png showing data flow patterns. Create an ASCII art or Mermaid diagram illustrating technology interaction: Browser → React Components → React Query (cache) → useActor Hook → Internet Identity (auth) → Motoko Actor → Stable Storage. Include sections explaining how each technology layer communicates with adjacent layers and the data flow through the entire stack."
+        },
+        {
+          "path": "frontend/src/pages/docs/DynamicPages.tsx",
+          "operation": "modify",
+          "description": "Add component hierarchy diagram to dynamic pages documentation. Embed the generated component hierarchy diagram from frontend/public/assets/generated/component-hierarchy.dim_1000x800.png showing the structure of pages and their child components. Create an ASCII art tree diagram showing: HomePage → HeroSection, FeaturedToolsGrid, CategoryCards, PopularToolsByCategory, NewToolsSection, Sidebar; CategoryPage → CategoryHero, Breadcrumbs, ToolGrid, Sidebar; Tool Pages → ToolPageTemplate → ToolHero, Breadcrumbs, (tool component), AboutTheTool, UsabilityGuide, FAQs, Testimonials, PerformanceMetrics, RelatedTools. Include explanatory text describing how components are composed, prop passing patterns, and the relationship between page-level components and reusable UI components."
+        },
+        {
+          "path": "frontend/src/pages/docs/BestPractices.tsx",
+          "operation": "modify",
+          "description": "Embed tool creation workflow diagram in best practices documentation. Include the generated workflow diagram from frontend/public/assets/generated/tool-creation-workflow.dim_1200x800.png showing the step-by-step process. Create an ASCII art flowchart showing: Planning → Component Creation → ToolPageTemplate Integration → Metadata Registration (constants/tools.ts) → Route Registration (App.tsx) → Testing → Deployment. Use arrows and decision points to illustrate the workflow. Add a second diagram showing code modification workflow: Identify Change → Check Immutability Constraints → Implement in Correct Location → Test Locally → Verify Authorization → Commit. Include explanatory sections for each workflow stage with code examples and common pitfalls to avoid."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Ensure all documentation pages follow consistent layout structure with standard sections and navigation",
+      "acceptanceCriteria": [
+        "All 6 pages use consistent layout structure",
+        "Code examples use syntax highlighting with appropriate language tags",
+        "Sections have clear headings and logical organization",
+        "Navigation elements consistent across all documentation pages",
+        "Responsive design works on mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/docs/StaticPagesContent.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Static Pages Content documentation. Follow the pattern from existing documentation pages like frontend/src/pages/docs/FrontendBackendIntegration.tsx: start with page title in h1, add introduction paragraph explaining scope, include table of contents with anchor links to major sections, organize content into logical sections with h2 headings, use code blocks with syntax highlighting (```tsx, ```typescript, ```motoko tags), add 'Related Resources' section at bottom linking to relevant documentation pages, include navigation back to documentation index (/documentation). Use shadcn/ui Card components for visual grouping, proper spacing with Tailwind classes (space-y-8, space-y-4), and responsive layout (max-w-4xl mx-auto px-4). Ensure code examples show real snippets from AboutUs.tsx, ContactUs.tsx, and legal pages with proper formatting. Add breadcrumbs at top if appropriate."
+        },
+        {
+          "path": "frontend/src/pages/docs/DynamicPages.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Dynamic Pages documentation. Use the same pattern: page title, introduction, table of contents with anchor links, logical section organization with h2/h3 headings, syntax-highlighted code blocks (```tsx for React components, ```typescript for types/hooks), related resources section, and navigation back to documentation index. Include code examples from HomePage.tsx, CategoryPage.tsx, ToolPageTemplate.tsx, Dashboard.tsx, and admin pages. Use Card components for grouping related content, proper spacing, and responsive layout. Ensure component hierarchy diagram is properly embedded and explained."
+        },
+        {
+          "path": "frontend/src/pages/docs/TechnologyStack.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Technology Stack documentation. Follow standard pattern with title, introduction, table of contents, sections for each technology (Motoko, React, Tailwind CSS, Shadcn UI, React Query, Three.js, Internet Identity), code examples with syntax highlighting, architecture diagrams properly embedded, related resources, and navigation. Use Card components to group technology explanations, include both backend (```motoko) and frontend (```tsx, ```typescript, ```css) code examples. Ensure diagrams (frontend/public/assets/generated/architecture-diagram.dim_1200x800.png and architecture-data-flow diagram) are properly sized and explained with surrounding text."
+        },
+        {
+          "path": "frontend/src/pages/docs/CreditSystem.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Credit System documentation. Use standard pattern: title, introduction, table of contents, sections covering backend implementation, frontend hooks, admin interface, credit flow, and migration considerations. Include code examples from backend.d.ts types, useCredits.ts hook, and CreditManagement.tsx admin page with proper syntax highlighting. Embed sequence diagram properly formatted. Use Card components for visual organization, maintain responsive layout, add related resources linking to Technology Stack and Best Practices, include navigation back to documentation index."
+        },
+        {
+          "path": "frontend/src/pages/docs/ImprovementAreas.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Improvement Areas documentation. Follow pattern: title, introduction explaining purpose, table of contents organized by priority levels, sections for Critical/High/Medium/Low priority improvements, code snippets showing placeholder states with syntax highlighting, related resources, navigation. Use Card or Alert components to highlight priority levels with color coding (destructive for critical, warning for high). Include file paths as inline code, show empty file contents or 'Coming Soon' placeholder examples. Maintain responsive layout and consistent spacing."
+        },
+        {
+          "path": "frontend/src/pages/docs/BestPractices.tsx",
+          "operation": "modify",
+          "description": "Apply consistent documentation layout structure to Best Practices documentation. Use standard pattern: title, introduction, table of contents, sections for tool creation workflow, backend constraints, immutable paths, code style guidelines, naming conventions, correct vs incorrect patterns. Include workflow diagram (frontend/public/assets/generated/tool-creation-workflow.dim_1200x800.png), code examples showing good/bad patterns side-by-side with syntax highlighting, Card components for grouping guidelines, Alert components for important warnings about immutability. Add related resources linking to Tool Creation Tutorial and Architecture documentation, include navigation back to index. Ensure responsive layout and consistent spacing throughout."
+        }
+      ]
+    }
+  ]
+}

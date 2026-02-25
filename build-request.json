@@ -1,0 +1,203 @@
+{
+  "kind": "build_request",
+  "title": "Complete Documentation System with 6 Comprehensive Topics",
+  "projectName": "Worldsathi Documentation",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create comprehensive documentation page for Static Pages Content covering About Us, Contact Us, Terms of Service, Privacy Policy, Cookie Policy, and Data Rights pages. Include the page structure, content strategy, component breakdown, code examples showing how each page is implemented, and best practices for maintaining legal content.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/static-pages-content route",
+        "Covers all 6 static page types with detailed explanations",
+        "Includes actual code snippets from existing pages (AboutUs.tsx, ContactUs.tsx, legal pages)",
+        "Explains the layout structure, form handling, and navigation patterns",
+        "Provides content maintenance guidelines"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create comprehensive documentation page for Dynamic Pages covering Homepage, Category pages, Tool pages, Dashboard, and Admin pages functionality. Include detailed explanations of routing, data fetching patterns, state management, component composition, and the relationship between pages and backend data.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/dynamic-pages route",
+        "Explains Homepage structure with hero, featured tools, categories, and sidebar",
+        "Documents Category page filtering and tool grid implementation",
+        "Covers Tool page architecture using ToolPageTemplate",
+        "Details Dashboard authentication requirements and user data display",
+        "Explains Admin pages structure and authentication guards"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create comprehensive documentation page for Technology Stack with detailed breakdown of Motoko backend, React frontend, Tailwind CSS styling, Shadcn UI components, React Query data fetching, Three.js capabilities, and Internet Identity authentication. Include architectural diagrams showing how these technologies interact, code examples demonstrating key patterns, and explanations of why each technology was chosen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/technology-stack route",
+        "Covers all 7 major technologies with detailed explanations",
+        "Includes architecture diagram showing frontend-backend integration",
+        "Provides code examples for each technology's usage patterns",
+        "Explains the role and benefits of each technology in the stack",
+        "Documents how technologies work together (e.g., React Query + Motoko actors)"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create comprehensive documentation page for Credit System covering complete architecture, backend data model in main.mo, migration strategy, frontend hooks (useCredits), admin interface for credit management, and usage tracking. Include detailed code examples from backend/main.mo showing stable variables, credit consumption logic, and authorization. Document the entire credit flow from user signup to credit deduction.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/credit-system route",
+        "Explains backend credit data model with code from main.mo",
+        "Documents stable variables used for credit persistence",
+        "Covers useCredits hook implementation and React Query integration",
+        "Details credit consumption flow with sequence diagrams",
+        "Explains admin credit management interface",
+        "Includes migration considerations for credit schema changes"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create comprehensive documentation page for Improvement Areas identifying placeholder implementations, missing features, incomplete admin pages, and enhancement opportunities across the application. Categorize improvements by priority (critical, high, medium, low), provide specific file locations, explain current limitations, and suggest implementation approaches for each improvement area.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/improvement-areas route",
+        "Lists all placeholder components with file paths",
+        "Identifies incomplete admin features (blog, forum, user stats)",
+        "Documents missing backend integrations",
+        "Categorizes improvements by priority level",
+        "Provides actionable suggestions for each improvement",
+        "Includes code snippets showing current placeholder state"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create comprehensive documentation page for Best Practices covering guidelines for adding new tools, modifying existing code, backend constraints (single-actor pattern, stable variables), frontend immutable paths (useInternetIdentity.ts, useActor.ts, ui components), and consistency standards. Include workflow diagrams, code examples demonstrating correct patterns, and anti-patterns to avoid.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation page accessible at /documentation/best-practices route",
+        "Documents tool creation workflow with step-by-step guide",
+        "Explains backend constraints with code examples",
+        "Lists all immutable frontend paths with explanations why",
+        "Provides code style and consistency guidelines",
+        "Includes examples of correct vs incorrect patterns",
+        "Documents naming conventions for files, components, and functions"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Update the Documentation Index page (/documentation) to include navigation links to all 6 new documentation sections alongside the existing 11 Internet Computer development guides. Organize sections into logical categories (Project Documentation, IC Platform Guides) with appropriate icons and descriptions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "DocsIndex.tsx updated with 6 new documentation sections",
+        "Sections organized under 'Project Documentation' category",
+        "Each section has an appropriate icon and description",
+        "Maintains existing IC Platform Guides structure",
+        "Navigation links work correctly to new documentation pages"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add routing configuration in App.tsx for all 6 new documentation pages using TanStack Router lazy loading pattern consistent with existing documentation routes.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Routes added for static-pages-content, dynamic-pages, technology-stack, credit-system, improvement-areas, and best-practices",
+        "Routes use lazy() for code splitting like existing doc routes",
+        "Routes nested under /documentation path",
+        "Route configuration follows existing patterns in App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "For each of the 6 documentation pages, include architectural diagrams where appropriate. Create ASCII art or Mermaid-compatible diagram syntax to illustrate: credit system flow, frontend-backend integration architecture, technology stack layers, tool page component hierarchy, and authentication flow.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Credit System page includes sequence diagram of credit consumption",
+        "Technology Stack page includes layered architecture diagram",
+        "Dynamic Pages documentation includes component hierarchy",
+        "Best Practices includes workflow diagrams for tool creation",
+        "Diagrams are clear, properly formatted, and embedded in documentation pages"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Ensure all documentation pages follow a consistent layout structure with: page title, introduction section, table of contents, detailed content sections with code examples, related resources links, and navigation back to documentation index. Use the same Shadcn UI components and styling as existing documentation pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All 6 pages use consistent layout structure",
+        "Code examples use syntax highlighting with appropriate language tags",
+        "Sections have clear headings and logical organization",
+        "Navigation elements consistent across all documentation pages",
+        "Responsive design works on mobile and desktop"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify immutable frontend paths: useInternetIdentity.ts, useActor.ts, main.tsx, components/ui",
+    "Backend remains single-actor architecture in main.mo",
+    "Use existing Shadcn UI components without modifications",
+    "Follow TanStack Router patterns established in App.tsx",
+    "Documentation must be accessible to both end users and developers"
+  ],
+  "nonGoals": [
+    "Implementing the actual improvements listed in Improvement Areas",
+    "Creating a PDF download feature for documentation",
+    "Adding interactive demos or sandboxes",
+    "Creating video tutorials or animations",
+    "Implementing search functionality within documentation"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
